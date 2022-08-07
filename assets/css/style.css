@@ -1,2 +1,15 @@
 :root {
 }
+
+#body {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  /* margin-top: 50px; */
+}
+
+.center {
+  justify-content: center;
+}
