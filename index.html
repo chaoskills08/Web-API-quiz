@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz time!</title> 
+  <title>Quiz time!</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
   <header>
-  <div class="page">Quiz timeeeee</div>
-  <button class="start-button">Start</button>
+    <div class="page">Quiz timeeeee</div>
+    <button class="start-button">Start</button>
   </header>
 
   <section>
     <header class="timer">60</header>
   </section>
   <main>
-    <section class="questionContainer">
-        <h2 id="questions">Welcome to a quiz about [REDACTED]</h2>
-        <article id="answers"></article>
+    <h2 id="welcome">time to quiz and what not</h2>
+    <section class="questionContainer hide">
+      <h2 id="questions"></h2>
+      <article id="answers"></article>
     </section>
+  </main>
+
+  <main id="questionText"></main>
+
+  <main id="endText" class="hide">
+    <h2>You've made it to the end!</h2>
+    <h3>Your score:</h3>
   </main>
 
   <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
