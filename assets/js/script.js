@@ -32,9 +32,11 @@
   //Initials and remaining time is saved to local storage as score
 // Game ense when all questions are answered OR timer reaches 0 -- is there a case where timer might go lower than 0?
 var questions = document.querySelector("#questions");
-var timerElement = document.querySelector(".time");
+var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
-var index = ""
+var answersDiv = document.querySelector("#answers")
+// console.log(document.querySelector("#answers"));
+var index = 0
 var score;
 var isWin = false;
 var timer;
@@ -61,6 +63,10 @@ function loseGame() {
   setLosses()
 }
 
+// function endGame() {
+
+// }
+
 function startTimer () {
   console.log("Made it to timer");
   timer = setInterval(function() {
@@ -68,28 +74,34 @@ function startTimer () {
     timerElement.textContent = timerCount;
     if (timerCount >= 0) {
       if (isWin && timerCount > 0) {
-        clearInterval(timer);
+        clearInterval(timer)
+      } if (timerCount === 0) {
+        clearInterval(timer)
       }
     }
   }, 1000);
-  var index = 0
 }
+var index = 0
 
 function renderQuestions() {
   console.log("You got to your questions");
-  document.getElementById("questions").innerHTML= questions[index].text;
-  var answersDiv = document.querySelector(".answers")
+  document.getElementById("#questions").text= questions[index];
+
+  answersDiv.innerHTML='';
+
   questions[index].answers.forEach(answer => {
-    var button = document.createElement("button");
-    button.setAttribute("value", answer.value);
-    button.textContent = answer.name;
-    answersDiv.appendChild("button");
+    var button = document.createElement("button")
+    button.setAttribute("value", answer.value)
+    button.textContent = answer.name
+    answersDiv.appendChild("button")
     button.onclick = function() {
-      var correct = this.value
-      if (correct) {
+      var correct = answer.value
+      if (guess === true) {
         console.log("correct");
+        score += 1
       } else {
-        consoler.log("Incorrect");
+        console.log("Incorrect");
+        timerCount -= 8
       }
       index++
       renderQuestions()
