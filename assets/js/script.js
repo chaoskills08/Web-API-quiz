@@ -6,6 +6,7 @@ var qContainer = document.querySelector(".questionContainer");
 var welcome = document.querySelector("#welcome");
 var endText = document.querySelector("#endText");
 var quesText = document.querySelector("#questionText");
+var saveButton = document.querySelector("#save-button");
 var index = 0;
 var score;
 var timer;
@@ -15,14 +16,14 @@ var chosenQuestion = [];
 var questions = [
   { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
   { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
+  { text: "Question 3", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
+  { text: "Question 4", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
+  { text: "Question 5", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
+  { text: "Question 6", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
+  { text: "Question 7", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
+  { text: "Question 8", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
+  { text: "Question 9", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
+  { text: "Question 10", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
 ]
 
 function startGame() {
@@ -62,7 +63,6 @@ function renderQuestions() {
     answersDiv.appendChild(button)
     button.onclick = function (event) {
       var guess = event.target.dataset.value
-      console.log(guess);
       if (guess === "true") {
         console.log("correct");
       } else {
@@ -83,12 +83,22 @@ function endGame() {
   clearInterval(timer);
   qContainer.classList.add("hide");
   endText.classList.remove("hide");
-  // display form
-
-  // submit form event click, grab score and user input, save to storage
-  // send to high score page
-  // grab localstorage
-  // play again button
 }
+// send to high score page
+function renderLastRegistered() {
+  // const uName = localStorage.getItem("fname");
+  // const timeScore = localStorage.getItem("timeScore");
+}
+
+saveButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var userInfo = document.querySelector("#player").value;
+  var score = document.querySelector("#timeScore").innerHTML;
+  localStorage.setItem("initials", userInfo);
+  localStorage.setItem("score", score);
+  renderLastRegistered()
+});
+
 
 startButton.addEventListener("click", startGame);
