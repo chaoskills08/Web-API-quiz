@@ -1,6 +1,6 @@
 # Web-API-quiz
 
-# Depoloyed 
+# Deployed 
 https://chaoskills08.github.io/Web-API-quiz/
 
 # Description
