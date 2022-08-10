@@ -11,12 +11,13 @@
 
 <body>
   <header>
-    <div class="page">Quiz timeeeee</div>
+    <div class="page">Quiz time</div>
     <button class="start-button">Start</button>
   </header>
 
   <section>
-    <header class="timer">60</header>
+    <header class="hide">Your score</header>
+    <header id="timeScore" class="timer"></header>
   </section>
   <main>
     <h2 id="welcome">time to quiz and what not</h2>
@@ -30,8 +31,14 @@
 
   <main id="endText" class="hide">
     <h2>You've made it to the end!</h2>
-    <h3>Your score:</h3>
+    <form>
+      <label for="playerText">Initials:</label><br>
+      <input type="text" id="player" name="fname"><br>
+    </form>
+    <button id="save-button" class="submit">Save score</button>
   </main>
+
+
 
   <script src="./assets/js/script.js"></script>
 </body>
