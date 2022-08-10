@@ -7,6 +7,8 @@ var welcome = document.querySelector("#welcome");
 var endText = document.querySelector("#endText");
 var quesText = document.querySelector("#questionText");
 var saveButton = document.querySelector("#save-button");
+var scoreBlock = document.querySelector("#scoreBlock");
+var techExp = document.querySelector("#techExp");
 var index = 0;
 var score;
 var timer;
@@ -14,23 +16,18 @@ var timerCount;
 var chosenQuestion = [];
 
 var questions = [
-  { text: "What defines the initial, basic structure of a webpage?", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "What does DOM stand for?", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "Question 3", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "Question 4", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "Question 5", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "Question 6", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "Question 7", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "Question 8", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
-  { text: "Question 9", answers: [{ name: "CSS", value: false }, { name: "Javascript", value: false }, { name: "HTML", value: true }, { name: "C++", value: false }] },
-  { text: "Question 10", answers: [{ name: "Document Object Model", value: true }, { name: "Data Orientation Manager", value: false }, { name: "Danger Overload Method", value: false }, { name: "Dub On Butt", value: false }] },
+  { text: "What is the brain of a computer?", answers: [{ name: "RAM", value: false }, { name: "Liquid cooler", value: false }, { name: "CPU", value: true }, { name: "GPU", value: false }] },
+  { text: "What actuates the key press on a mechanical keyboard?", answers: [{ name: "Switch", value: true }, { name: "Keycap", value: false }, { name: "Case", value: false }, { name: "RGB", value: false }] },
+  { text: "Which component does the video processing in a computer?", answers: [{ name: "CPU", value: false }, { name: "Video card", value: true }, { name: "Power button", value: false }, { name: "Power supply", value: false }] },
+  { text: "Which of these USB types is reversible?", answers: [{ name: "Type-C", value: true }, { name: "Mini-B", value: false }, { name: "Type A", value: false }, { name: "Micro-B", value: false }] },
 ]
-
 function startGame() {
   timerCount = 60;
   qContainer.classList.remove("hide");
   welcome.classList.add("hide");
   startButton.classList.add("hide");
+  scoreBlock.classList.remove("hide");
+  techExp.classList.add("hide");
   startTimer()
   renderQuestions()
 }
@@ -84,11 +81,6 @@ function endGame() {
   qContainer.classList.add("hide");
   endText.classList.remove("hide");
 }
-// send to high score page
-function renderLastRegistered() {
-  // const uName = localStorage.getItem("fname");
-  // const timeScore = localStorage.getItem("timeScore");
-}
 
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -97,8 +89,6 @@ saveButton.addEventListener("click", function (event) {
   var score = document.querySelector("#timeScore").innerHTML;
   localStorage.setItem("initials", userInfo);
   localStorage.setItem("score", score);
-  renderLastRegistered()
 });
-
 
 startButton.addEventListener("click", startGame);

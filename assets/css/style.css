@@ -1,8 +1,4 @@
-:root {}
-
 #body {
-  display: flex;
-  justify-content: space-evenly;
   background-color: rgb(112, 188, 255);
 }
 
@@ -16,7 +12,12 @@ h1 {
 }
 
 .center {
+  display: flex;
   justify-content: center;
+}
+
+.header {
+  text-align: center;
 }
 
 .buttons {
@@ -34,4 +35,39 @@ h1 {
 
 .hide {
   display: none;
+}
+
+#endText {
+  flex-direction: column;
+  align-items: center;
+}
+
+.fontFancy {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.questionContainer {
+  flex-direction: column;
+}
+
+.section {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.buttonDim {
+  height: 40px;
+  width: 100px;
+  margin-top: 30px;
+}
+
+button {
+  margin: 40px;
+}
+
+.button2 {
+  height: 40px;
+  width: 100px;
 }
